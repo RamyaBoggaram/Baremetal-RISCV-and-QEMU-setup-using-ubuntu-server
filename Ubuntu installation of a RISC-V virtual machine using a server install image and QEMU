@@ -1,0 +1,35 @@
+The Jammy release image is available at https://cdimage.ubuntu.com/releases/22.04.3/release/.
+
+Download the image either using your web browser or with
+
+wget https://cdimage.ubuntu.com/ubuntu-server/daily-live/current/<release>-live-server-riscv64.img.gz 
+Installation:
+Extract the image.
+
+gzip -d jammy-live-server-riscv64.img.gz
+Create the disk image on which you will install Ubuntu. 16 GiB should be enough.
+
+dd if=/dev/zero bs=1M of=disk count=1 seek=16383
+Start the installer with:
+
+/usr/bin/qemu-system-riscv64 -machine virt -m 4G -smp cpus=2 -nographic \
+    -bios /usr/lib/riscv64-linux-gnu/opensbi/generic/fw_jump.bin \
+    -kernel /usr/lib/u-boot/qemu-riscv64_smode/u-boot.bin \
+    -netdev user,id=net0 \
+    -device virtio-net-device,netdev=net0 \
+    -drive file=noble-live-server-riscv64.img,format=raw,if=virtio \
+    -drive file=disk,format=raw,if=virtio \
+    -device virtio-rng-pci
+
+When rebooting we have to remove the installer image. Otherwise the installer will restart.
+
+Run Ubuntu:
+To run your installed Ubuntu image use
+
+/usr/bin/qemu-system-riscv64 -machine virt -m 4G -smp cpus=2 -nographic \
+    -bios /usr/lib/riscv64-linux-gnu/opensbi/generic/fw_jump.bin \
+    -kernel /usr/lib/u-boot/qemu-riscv64_smode/u-boot.bin \
+    -netdev user,id=net0 \
+    -device virtio-net-device,netdev=net0 \
+    -drive file=disk,format=raw,if=virtio \
+    -device virtio-rng-pci
