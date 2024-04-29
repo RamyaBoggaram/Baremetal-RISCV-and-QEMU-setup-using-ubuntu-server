@@ -13,6 +13,8 @@ qemu-system-riscv64 -machine virt -nographic -m 2048 -smp 4 -bios /usr/lib/riscv
 username: ubuntu
 password:sifive
 
+!!you might want to run the following command if you see an security error:
+ssh-keygen -f "/home/nondocker/.ssh/known_hosts" -R "[localhost]:5555"
 
 Running VGG16 model:
 1. Upload binary: 
