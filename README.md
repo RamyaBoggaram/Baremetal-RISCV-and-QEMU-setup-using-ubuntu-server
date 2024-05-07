@@ -59,7 +59,7 @@ The Jammy release image is available at https://cdimage.ubuntu.com/releases/22.0
 
 Download the image either using your web browser or with
 ```
-wget https://cdimage.ubuntu.com/ubuntu-server/daily-live/current/<release>-live-server-riscv64.img.gz 
+wget https://cdimage.ubuntu.com/ubuntu-server/daily-live/current/22.04.3-live-server-riscv64.img.gz 
 ```
 Installation:
 Extract the image.
