@@ -2,7 +2,7 @@
 # 1. Install QEMU dependencies
 ```
 sudo apt-get install ninja-build
-cd riscv-ubuntu/
+mkdir riscv-ubuntu/
 ```
 # 2. Install QEMU
 ```
@@ -23,7 +23,7 @@ git checkout 1a36b5dc44d71ab6a583db5f4f0062c2a4ad963b
 # 4. Prefix parameter specifying the installation location
 ```
 ./configure --prefix=/opt/riscv
-make linux -j $(nproc)
+sudo make linux -j $(nproc)
 
 cd ..
 ```
