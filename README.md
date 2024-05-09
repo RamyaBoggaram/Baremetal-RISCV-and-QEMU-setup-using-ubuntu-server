@@ -59,12 +59,12 @@ The Jammy release image is available at https://cdimage.ubuntu.com/releases/22.0
 
 Download the image either using your web browser or with
 ```
-wget https://cdimage.ubuntu.com/ubuntu-server/daily-live/current/22.04.3-live-server-riscv64.img.gz 
+wget https://cdimage.ubuntu.com/releases/22.04.3/release/ubuntu-22.04.4-live-server-riscv64.img.gz 
 ```
 Installation:
 Extract the image.
 ```
-gzip -d jammy-live-server-riscv64.img.gz
+gzip -d ubuntu-22.04.4-live-server-riscv64.img.gz 
 ```
 Create the disk image on which you will install Ubuntu. 16 GiB should be enough.
 ```
